@@ -1,0 +1,31 @@
+{
+  "name": "peliculas-api",
+  "version": "1.0.0",
+  "description": "API REST de gestión de películas y series con Node.js, Express, Sequelize y SQLite.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "seed": "node src/seeders/seed.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "sqlite",
+    "api-rest",
+    "peliculas"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
