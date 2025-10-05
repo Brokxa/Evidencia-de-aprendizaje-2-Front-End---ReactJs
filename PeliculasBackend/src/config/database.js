@@ -4,14 +4,15 @@ require('dotenv').config();
 let sequelize;
 
 if (process.env.DB_DIALECT === 'sqlite') {
-  // Conexión local con SQLite (modo desarrollo)
   sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: process.env.DB_STORAGE || './database.sqlite',
-    logging: false
+    logging: false,
   });
-} else if (process.env.DB_DIALECT === 'postgres') {
-  // Conexión a PostgreSQL (modo producción en Render)
+}
+
+//  PostgreSQL
+else if (process.env.DB_DIALECT === 'postgres') {
   sequelize = new Sequelize(
     process.env.DB_NAME,
     process.env.DB_USER,
@@ -24,13 +25,16 @@ if (process.env.DB_DIALECT === 'sqlite') {
       dialectOptions: {
         ssl: {
           require: true,
-          rejectUnauthorized: false
-        }
-      }
+          rejectUnauthorized: false, 
+        },
+      },
     }
   );
-} else {
-  throw new Error('DB_DIALECT no configurado correctamente en .env');
+}
+
+
+else {
+  throw new Error('DB_DIALECT no configurado correctamente en el archivo .env');
 }
 
 module.exports = sequelize;
